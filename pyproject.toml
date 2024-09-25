@@ -21,6 +21,9 @@ classifiers = [
 ]
 
 dependencies = [
+  "torch@https://download.pytorch.org/whl/cu121/torch-2.4.1%2Bcu121-cp312-cp312-win_amd64.whl#sha256=b30faf3224697eaed131939690e8877b05b4d4cb6da5b12cfdcba3d742e9afd0",
+  "torchaudio@https://download.pytorch.org/whl/cu121/torchaudio-2.4.1%2Bcu121-cp312-cp312-win_amd64.whl#sha256=1dbcafb1bd954fc33bf34e6062be7b2005cfe3bde82bc938d08e650aa9c9c08c",
+  "torchvision@https://download.pytorch.org/whl/cu121/torchvision-0.19.1%2Bcu121-cp312-cp312-win_amd64.whl#sha256=a1627f99b9a7ac36f14d1ee207e71cf7ac52329c6317b580980fcc1916fe1276",
 ]
 
 [project.optional-dependencies]
@@ -38,6 +41,9 @@ Homepage = "https://github.com/jgvlf/LeNetF9"
 
 [tool.hatch.version]
 path = "src/lenetf9/__init__.py"
+
+[tool.hatch.metadata]
+allow-direct-references = true
 
 [tool.mypy]
 python_version = "3.12"
