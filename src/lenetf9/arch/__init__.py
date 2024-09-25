@@ -1,0 +1,2 @@
+class Arch:
+    pass
