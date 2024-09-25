@@ -9,7 +9,7 @@ from lenetf9.config.training import Training
 class LeNet(Arch, nn.Module):
     def __init__(self: Self, *args: tuple, **kwargs: dict) -> None:
         nn.Module.__init__(self, *args, **kwargs)
-        self.layer1: nn.Sequential = nn.Sequential(
+        self.convolutional_layer: nn.Sequential = nn.Sequential(
             nn.Conv2d(
                 in_channels=1,
                 out_channels=6,
@@ -31,8 +31,10 @@ class LeNet(Arch, nn.Module):
                 stride=2,
             ),
         )
-        self.fc: nn.Linear = nn.Linear(400, 120)
-        self.relu: nn.ReLU = nn.ReLU()
-        self.fc1: nn.Linear = nn.Linear(120, 84)
-        self.relu1: nn.ReLU = nn.ReLU()
-        self.fc2: nn.Linear = nn.Linear(84, Training.NUM_CLASSES)
+        self.fully_connected_layer: nn.Sequential = nn.Sequential(
+            nn.Linear(400, 120),
+            nn.Sigmoid(),
+            nn.Linear(120, 84),
+            nn.Sigmoid(),
+            nn.Linear(84, Training.NUM_CLASSES),
+        )
