@@ -42,6 +42,8 @@ ignore = [
   # Remove when possible. Also, think a little before removing.
   "G", "FA100", "ANN", "PTH", "FBT001", "FBT002", "PLR2004", "S608",
   "S113", "PLR0913", "TRY002", "S301",
+
+  "T201",
 ]
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
