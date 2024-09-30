@@ -14,13 +14,23 @@ class LenetArgs:
         info = subparsers.add_parser("info", help="LeNet informations", usage="lenet info [OPTIONS] <COMMAND>")
         sub_info = info.add_subparsers(title="Commands", metavar="", dest="info")
 
-        arch = sub_info.add_parser(
+        sub_info.add_parser(
             "arch",
             help="Information of Neural Network Arch",
             usage="lenet info arch [OPTIONS]",
         )
-        arch_parameters = arch.add_argument_group("Parameters")
-        arch_parameters.add_argument("--author", action="store_true")
+        train = subparsers.add_parser("train", help="Training LeNet model", usage="lenet train [OPTIONS] <COMMAND>")
+        train_args = train.add_argument_group("Parameters")
+        train_args.add_argument("--cpu", action="store_true", help="Train with the CPU")
+        train_args.add_argument("--epochs", type=int, help="Define the number of training cycles")
+        train_args.add_argument("--step", type=int, help="Define de distance between the training prints")
 
-        subparsers.add_parser("train", help="Training LeNet model")
         return parser.parse_args()
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()
