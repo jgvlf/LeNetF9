@@ -36,6 +36,9 @@ dev = [
   "mypy==1.11.2",
 ]
 
+[project.scripts]
+lenet = "lenetf9.bin.lenet:main"
+
 [project.urls]
 Homepage = "https://github.com/jgvlf/LeNetF9"
 
