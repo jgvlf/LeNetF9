@@ -6,6 +6,6 @@ from lenetf9.hyperparameters import Hyperparameters
 
 
 class LeNetHyperparameters(Hyperparameters):
-    COST = CrossEntropyLoss
-    OPTIMIZER = Adam
-    TOTAL_STEP: int = len(MNIST.TRAIN_LOADER)
+    cost: CrossEntropyLoss = CrossEntropyLoss()
+    optimizer = Adam
+    total_step: int = len(MNIST.TRAIN_LOADER)

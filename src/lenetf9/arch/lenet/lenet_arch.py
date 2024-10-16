@@ -1,4 +1,4 @@
-from typing import Self
+from typing import Any, Self
 
 from torch import nn
 
@@ -30,11 +30,16 @@ class LeNet(Arch, nn.Module):
                 kernel_size=2,
                 stride=2,
             ),
+            nn.Flatten(),
         )
         self.fully_connected_layer: nn.Sequential = nn.Sequential(
-            nn.Linear(400, 120),
+            nn.Linear(576, 120),
             nn.Sigmoid(),
             nn.Linear(120, 84),
             nn.Sigmoid(),
             nn.Linear(84, Training.NUM_CLASSES),
         )
+
+    def forward(self, input_data: Any) -> Any:
+        input_conv_layer = self.convolutional_layer(input_data)
+        return self.fully_connected_layer(input_conv_layer)
